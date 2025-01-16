@@ -9,11 +9,24 @@ public class Config {
         this.linkHours = linkHours;
     }
 
+    public Config(){
+        this.clickLimit = 100;
+        this.linkHours = 24;
+    }
+
     public int getClickLimit() {
         return clickLimit;
     }
 
+    public void setClickLimit(int clickLimit) {
+        this.clickLimit = clickLimit;
+    }
+
     public int getLinkHours() {
         return linkHours;
+    }
+
+    public void setLinkHours(int linkHours) {
+        this.linkHours = linkHours;
     }
 }

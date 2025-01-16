@@ -1,17 +1,17 @@
 package main.models;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 public class LinkModel {
     private String originalUrl;
     private String shortenedUrl;
     private int clicksLimit;
     private int clicks;
-    private LocalDateTime expirationTime;
+    private Instant expirationTime;
     private String userId;
     private boolean isActive;
 
-    public LinkModel(String originalUrl, String shortenedUrl, int clicksLimit, LocalDateTime expirationTime, String userId){
+    public LinkModel(String originalUrl, String shortenedUrl, int clicksLimit, Instant expirationTime, String userId){
         this.originalUrl = originalUrl;
         this.shortenedUrl = shortenedUrl;
         this.clicksLimit = clicksLimit;
@@ -20,6 +20,8 @@ public class LinkModel {
         this.isActive = true;
         this.clicks = 0;
     }
+
+    public LinkModel() {}
 
     public String getOriginalUrl() {
         return originalUrl;
@@ -53,11 +55,11 @@ public class LinkModel {
         this.clicks = clicks;
     }
 
-    public LocalDateTime getExpirationTime() {
+    public Instant  getExpirationTime() {
         return expirationTime;
     }
 
-    public void setExpirationTime(LocalDateTime expirationTime) {
+    public void setExpirationTime(Instant  expirationTime) {
         this.expirationTime = expirationTime;
     }
 

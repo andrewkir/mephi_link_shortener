@@ -9,6 +9,8 @@ public class Links {
         this.links = links;
     }
 
+    public Links() {}
+
     public List<LinkModel> getLinks() {
         return links;
     }
