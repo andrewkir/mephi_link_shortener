@@ -71,6 +71,10 @@ public class LinkShortener {
         LinksManager.updateClicksLimit(link, clicksLimit);
     }
 
+    public void deleteLink(LinkModel link) {
+        LinksManager.removeLink(link);
+    }
+
     private String generateShortKey() {
         StringBuilder shortKey = new StringBuilder();
         for (int i = 0; i < SHORT_URL_LENGTH; i++) {

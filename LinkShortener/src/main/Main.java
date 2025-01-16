@@ -69,7 +69,8 @@ public class Main {
             System.out.println("2 - Создание короткой ссылки");
             System.out.println("3 - Переход по короткой ссылке");
             System.out.println("4 - Изменение лимита переходов");
-            System.out.println("5 - Завершить работу");
+            System.out.println("5 - Удаление короткой ссылки");
+            System.out.println("6 - Завершить работу");
 
             String next = scanner.nextLine();
             switch (next) {
@@ -86,6 +87,9 @@ public class Main {
                     handleLinkClicksEdit(user, shortener);
                     break;
                 case "5":
+                    handleLinkDeletion(user, shortener);
+                    break;
+                case "6":
                     return;
             }
         }
@@ -171,5 +175,20 @@ public class Main {
             }
         }
         System.out.println("Не удалось найти ссылку");
+    }
+
+    private static void handleLinkDeletion(User user, LinkShortener shortener) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите короткую ссылку, которую нужно удалить");
+        String enteredLink = scanner.nextLine();
+        List<LinkModel> links = LinksManager.getLinksForUser(user.getUserId());
+        for (LinkModel link: links) {
+            if (link.getShortenedUrl().equals(enteredLink)) {
+                shortener.deleteLink(link);
+                System.out.println("Успешно!");
+                return;
+            }
+        }
+        System.out.println("Не удалось найти ссылку, либо Вы не являетесь создателем");
     }
 }
